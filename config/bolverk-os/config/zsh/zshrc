@@ -1,0 +1,33 @@
+ZSH_THEME="bolverk" #re5et, sunaku,arrow,lambda
+plugins=(
+  git
+)
+#
+ZSH_DISABLE_COMPFIX=true
+#
+source $ZSH/oh-my-zsh.sh
+source /etc/zsh/aliases
+source /etc/zsh/funcs
+#
+# stop all beeps
+unsetopt beep
+unsetopt list_beep
+unsetopt hist_beep
+#
+# history settings
+HISTFILE=~/.zsh_history
+HISTSIZE=2048
+SAVEHIST=2048
+setopt append_history       # append history
+setopt hist_reduce_blanks   # removes un-needed blank spaces and lines from history
+setopt hist_verify          # verify before executing history command
+setopt extended_history     # save time/date in zsh_history
+setopt share_history        # share history between sessions
+# alerts 
+watch=all                   # watch all logins
+logcheck=15                 # every 15 seconds
+
+myip
+#theme candy
+#theme fortune
+#theme re5et

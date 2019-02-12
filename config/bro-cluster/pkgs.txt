@@ -1,0 +1,10 @@
+#depending on your OS libssl-dev dependences can change
+libssl1.0-dev
+#bro dependencies
+git cmake make gcc g++ flex bison libpcap-dev libssl-dev python-dev swig zlib1g-dev mailutils libmaxminddb-dev libmaxminddb0
+#nic firmware
+firmware-bnx2x firmware-iwlwifi firmware-qlogic
+#misc firmware that will work in most cases
+firmware-linux firmware-linux-free firmware-linux-nonfree firmware-misc-nonfree
+# https/ssl stuff
+sslstrip sslsniff

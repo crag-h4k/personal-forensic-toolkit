@@ -1,0 +1,17 @@
+source /etc/network/interfaces.d/*
+# Loopback
+auto lo
+iface lo inet loopback
+#motherboard NIC
+allow-hotplug $IFACE
+iface $IFACE inet dhcp
+#SFP 0
+allow-hotplug enp2s0f0
+iface $IFACE inet dhcp
+#SFP 1  mirrored port
+auto $IFACE
+iface $IFACE inet manual
+    pre-up modprobe 8021q
+    pre-up ifconfig $IFACE up
+    post-down ifconfig $IFACE down
+#network-manager handles wifi
