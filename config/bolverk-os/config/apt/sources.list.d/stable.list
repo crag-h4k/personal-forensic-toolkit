@@ -1,2 +1,0 @@
-deb http://mirror.hmc.edu/debian/ stable main contrib non-free
-deb-src http://mirror.hmc.edu/debian/ stable main contrib non-free
