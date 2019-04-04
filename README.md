@@ -165,7 +165,7 @@ Things start to get really spicy when you use dd over SSH. I like to do this to 
   ```bash
   wireshark
   ```
-  - Then choose the interface you want to sniff on
+  - Then choose the interface you want to sniff on.
 
   !['Wireshark example'](wireshark.PNG)
 
@@ -203,7 +203,6 @@ Things start to get really spicy when you use dd over SSH. I like to do this to 
   sudo apt install bro broctl
   ```
 
-  
 ### [2.3 tcpdump](http://www.tcpdump.org/)
 
 - Description
@@ -248,7 +247,7 @@ Things start to get really spicy when you use dd over SSH. I like to do this to 
   ```bash
   sudo snort -r <pcap file> -c <config file location>
   ```
-  ​	After that, snort will print its results to ```/var/log/snort/alert``` .
+  - After that, snort will print its results to ```/var/log/snort/alert``` .
 
   **can be install via apt on Debian-based Linux distributions*
 
@@ -293,32 +292,26 @@ Things start to get really spicy when you use dd over SSH. I like to do this to 
 
 - Description
 
-  
-
-  **[Source]()*
+  - A Loadable Kernel Module (LKM) which allows for volatile memory acquisition from Linux and Linux-based devices, such as Android. This makes LiME unique as it is the first tool that allows for full memory captures on Android devices. It also minimizes its interaction between user and kernel space processes during acquisition, which allows it to produce memory captures that are more forensically sound than those of other tools designed for Linux memory acquisition.
+  **[Source](https://github.com/504ensicsLabs/LiME/blob/master/README.md)*
 
 - Review
 
   - 
 
 - Usage
-
+  1. Install liMe via apt
   ```bash
-  apt-get install build-essential linux-headers-4.9.0-8-amd64 openssh-server
-  #After that, we made a copy of the “LiME” memory capture repository posted on Github.com with the following command:
-  git clone https://github.com/504ensicsLabs/LiME
-  #After we obtained a copy of the repository, we started the process of acquiring a memory capture via network. Here are the steps we took:
-  sudo su
-  cd /root/LiME/src
-  make
-  insmod /root/LiMe/src/lime-3.2.0-24-generic-pae.ko "path=tcp:4444 format=lime timeout=0"
-  nc <target ip addreess> 444 > mem-cap-evidence2.1.2.mem
+  apt install lime-forensics-dkms 
   ```
+  2. Acquire memory via ssh
+```bash
+ssh root@<remote ip> 'insmod ./lime.ko "path=/root/memcap format=lime timeout=0'| > ./memory-capture.memcap
 ```
 **can be install via apt on Debian-based Linux distributions*
   ```bash
-  
-```
+  sudo apt install lime-forensics-dkms
+  ```
 
 
 
