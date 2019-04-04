@@ -120,7 +120,7 @@ This document should be used as a Digital Forensics Toolkit quick reference shee
 
   - Convert and copy a file, write disk headers, boot records, create a boot floppy. dd can make an exact clone of an (unmounted) disk, this will include all blank space so the output destination must be at least as large as the input.
 
-    **Source](<https://ss64.com/bash/dd.html>)*
+    **[Source](<https://ss64.com/bash/dd.html>)*
 
 - Review
 
@@ -262,13 +262,13 @@ Things start to get really spicy when you use dd over SSH. I like to do this to 
 
 - Description
 
-  - The Volatility Framework is a completely open collection of tools forthe extraction of digital artifacts from volatile memory (RAM) samples. It is useful in forensics analysis. The extraction techniques areperformed completely independent of the system being investigated but offer unprecedented visibility into the runtime state of the system.
+  - The Volatility Framework is a completely open collection of tools forthe extraction of digital artifacts from volatile memory (RAM) samples. It is useful in forensics analysis. The extraction techniques are performed completely independent of the system being investigated but offer unprecedented visibility into the runtime state of the system.
 
     **[Source](http://manpages.ubuntu.com/manpages/cosmic/en/man1/volatility.1.html)*
 
 - Review
 
-  - 
+  - Volatility is an extremely useful tool for analyzing memory captures. Volatility 
 
 - Usage
 
@@ -280,7 +280,9 @@ Things start to get really spicy when you use dd over SSH. I like to do this to 
   volatility -f memdump.mem --profile=Win10x64_10586 pstree`
   volatility -f memdump.mem --profile=Win10x64_10586 psxview
   volatility -f memdump.mem --profile=Win10x64_10586 apihooks
-  volatility -f memdump.mem --profile=Win10x64_10586 netscan
+  volatility -f memdump.mem --profile=Win10x64_10586 sock
+  scan
+  volatility -f memdump.mem --profile=Win10x64_10586 malfind
   ```
   **can be install via apt on Debian-based Linux distributions*
   ```bash
@@ -306,11 +308,12 @@ Things start to get really spicy when you use dd over SSH. I like to do this to 
   ```
   2. Acquire memory via ssh
 ```bash
-ssh root@<remote ip> 'insmod ./lime.ko "path=/root/memcap format=lime timeout=0'| > ./memory-capture.memcap
+	ssh root@<remote ip> 'insmod ./lime.ko "path=/root/memcap format=lime timeout=0'| > ./memory-capture.memcap
 ```
 **can be install via apt on Debian-based Linux distributions*
+
   ```bash
-  sudo apt install lime-forensics-dkms
+ 	 sudo apt install lime-forensics-dkms
   ```
 
 
