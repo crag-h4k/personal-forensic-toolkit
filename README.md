@@ -11,7 +11,7 @@ This document should be used as a Digital Forensics Toolkit quick reference shee
 
 **Unless otherwise stated, all tools are installed on Debian GNU/Linux*
 
-## Installation Instructions
+## Installation
 **If you do not want to install all of the packages, installation instructions come with each individual tool.*
 
 To install all of the tools listed in my toolkit on Debian GNU/Linux based distribution simply run the install script as follows:
@@ -30,8 +30,7 @@ forensics_pkgs.txt
 
 <!--ts-->
    * [Personal Forensics Toolkit](#personal-forensics-toolkit)
-      * [Introduction](#introduction)
-      * [Installation Instructions](#installation-instructions)
+      * [Installation](#installation)
       * [1. Host and Storage Tools](#1-host-and-storage-tools)
          * [<a href="https://accessdata.com/product-download/ftk-imager-version-4.2.0" rel="nofollow">1.1 FTK Imager</a>](#11-ftk-imager)
          * [<a href="https://www.sleuthkit.org/autopsy/" rel="nofollow">1.2 Autopsy</a>](#12-autopsy)
