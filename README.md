@@ -63,7 +63,7 @@ forensics_pkgs.txt
 
   - FTK Imager comes with a GUI that is very straight forward and easy-to-use. Simply choose what you want to name your disk images and follow the prompts. 
 
-  CLI: 
+   - CLI: 
   ```bash
   ftkimager <source drive> <destination> --case-number <X> --evidence-number <X> --examiner <X> --outpass <encryption password>
   ```
@@ -180,7 +180,7 @@ Things start to get really spicy when you use dd over SSH. I like to do this to 
   ```
   - Then choose the interface you want to sniff on.
 
-  !['Wireshark example'](wireshark.PNG)
+  !['Wireshark example'](pics/wireshark.PNG)
 
   To use the GUI to browser through an existing pcap file:
 
@@ -397,6 +397,7 @@ Things start to get really spicy when you use dd over SSH. I like to do this to 
 	- Description
 
   
+
 
 
 
