@@ -1,8 +1,0 @@
-forensics-all
-lime-forensics-dkms
-snort
-suricata
-tcpdump
-vim
-volatility
-wireshark

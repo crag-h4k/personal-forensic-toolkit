@@ -11,7 +11,19 @@ This document should be used as a Digital Forensics Toolkit quick reference shee
 
 **Unless otherwise stated, all tools are installed on Debian GNU/Linux*
 
+## Installation Instructions
+
+To install all of the tools listed in my toolkit on Debian GNU/Linux based distribution simply run the install script as follows:
+
+```bash
+chmod +x install.sh
+sudo ./install.sh
+```
+
+**If you do not want to install all of the packages, installation instructions come with each individual tool.*
+
 <!--ts-->
+
    * [Personal Forensics Toolkit](#personal-forensics-toolkit)
       * [Introduction](#introduction)
       * [1. Host and Storage Tools](#1-host-and-storage-tools)
@@ -268,23 +280,22 @@ Things start to get really spicy when you use dd over SSH. I like to do this to 
 
 - Review
 
-  - Volatility is an extremely useful tool for analyzing memory captures. Volatility 
+  - Volatility is an extremely useful tool for analyzing memory captures. Volatility allows you really dig into what's going on in the memory. You can view all the processes in memory, network connections, and even find identify malware itself!
+  - Below are some useful commands to run with Volatility.
 
 - Usage
 
   ```bash
-  volatility -f memdump.mem imageinfo
-  volatility -f memdump.mem --profile=Win10x64_10568 netscan 
-  volatility -f memdump.mem --profile=Win10x64_10586 pslist
-  volatility -f memdump.mem --profile=Win10x64_10586 psscan
-  volatility -f memdump.mem --profile=Win10x64_10586 pstree`
-  volatility -f memdump.mem --profile=Win10x64_10586 psxview
-  volatility -f memdump.mem --profile=Win10x64_10586 apihooks
-  volatility -f memdump.mem --profile=Win10x64_10586 sock
-  scan
-  volatility -f memdump.mem --profile=Win10x64_10586 malfind
+  volatility -f <memory capture>.mem <flag>
   ```
+  - These are the flags that I have found to be most useful. They are sequenced in the order I would use them.
+
+  ```bash 
+   imageinfo, malfind, netscan, sockscan, pslist, psscan, psttree, psxview, apihooks
+  ```
+
   **can be install via apt on Debian-based Linux distributions*
+
   ```bash
   sudo apt install volatility
   ```
@@ -299,16 +310,16 @@ Things start to get really spicy when you use dd over SSH. I like to do this to 
 
 - Review
 
-  - 
+  - When I first used LiME. I was very confused. I didn't understand why I was inserting a kernel module to capture memory. However, LiME proved to be very useful and easy to use once I was able to figure out how to pipe out the memory capture through ssh injection. 
 
 - Usage
-  1. Install liMe via apt
+  1. Install LiMe via apt
   ```bash
   apt install lime-forensics-dkms 
   ```
   2. Acquire memory via ssh
 ```bash
-	ssh root@<remote ip> 'insmod ./lime.ko "path=/root/memcap format=lime timeout=0'| > ./memory-capture.memcap
+	ssh root@<remote ip> 'insmod /root/lime.ko "path=/root/memcap format=lime timeout=0'| > ./memory-capture.memcap
 ```
 **can be install via apt on Debian-based Linux distributions*
 
@@ -324,163 +335,84 @@ Things start to get really spicy when you use dd over SSH. I like to do this to 
 
 - Description
 
-  
-
-  **[Source]()*
+  -  Computes multiple hashes, or message digests, for any number of files while  optionally  recursively  digging  through the directory structure.  By default the program computes MD5 and SHA-256 hashes, equivalent to -c md5,sha256.  Can also take a  list of  known  hashes and display the filenames of input files whose hashes either do or do not match any of the known hashes.  Can also use a list of known hashes to  audit a  set  of FILES.  Errors are reported to standard error. If no FILES are specified, reads from standard input.
+  **[Source](https://linux.die.net/man/1/hashdeep)*
 
 - Review
 
-  - 
+  - This application is the best. When I am given a directory of files that all need to be hashed, this is by far the easiest tool to use, hashdeep recursively traverses a directory and computes hashes of all the files in the directory!  It's super useful. This app gets A+ and  👍👍
 
-- Usage
+- Usage to produce MD5 sums:
 
   ```bash
-  
+  md5deep -r <directory> > md5sums.chk  
+  ```
+- Usage to produce sha256 sums:
+
+  ```bash
+  sha256deep -r <directory> > sha256sums.chk  
   ```
   **can be install via apt on Debian-based Linux distributions*
   ```bash
-  
+  sudo apt install hashdeep 
   ```
 
   
+
 ### [4.2 vim](https://github.com/vim/vim)
 
 - Description
 
-  
-
-  **[Source]()*
+  - Vim is a text editor that is upwards compatible to Vi. It can be used to edit all kinds of plain text. It is especially useful for editing programs. 
+  **[Source](https://linux.die.net/man/1/vim)*
 
 - Review
 
-  - 
+  - Vim is by absolute favorite text editor, so much so that I don't use any kind of IDE. As many other terminal-based text editors, Vim can have a steep learning curve; however, with that said, learning to use Vim is an extremely useful skill that makes command-line/terminal based programming and configuration 1000x more efficient. 
+
+  - The biggest draw of Vim  for  most people is that it is highly customizable, programmable, resource-light, and can open any type of file for editing. 
+
+  - Here's what Vim looks like with Python3 syntax highlighting, Dracula colorscheme, and numbering set:
+
+    
+
+    ![vim example](pics/vim-example.PNG)
 
 - Usage
 
   ```bash
-  
+  vim <filename>
   ```
   **can be install via apt on Debian-based Linux distributions*
   ```bash
-  
+  sudo apt install vim
   ```
 
+!!!tool_outline
+<!---
+	### []()
+
+	- Description
+
   
-### [4.3 FIR (Fast Incident Response](<https://github.com/certsocietegenerale/FIR>)
 
-- Description
 
-  
+  	**Source]()*
 
-  **[Source]()*
+	- Review
 
-- Review
-
-  - 
+ 	 - 
 
 - Usage
 
-  ```bash
-  
-  ```
-  **can be install via apt on Debian-based Linux distributions*
-  ```bash
-  
-  ```
+ 	 ```bash
 
-  
-### [4.4 FTK](https://accessdata.com/products-services/forensic-toolkit-ftk)
+ 	 ```
 
-- Description
-
-  
-
-  **[Source]()*
-
-- Review
-
-  - 
-
-- Usage
-
-  ```bash
-  
-  ```
-  **can be install via apt on Debian-based Linux distributions*
-  ```bash
-  
-  ```
-
-  
-### []()
-
-- Description
-
-  
-
-  **Source]()*
-
-- Review
-
-  - 
-
-- Usage
-
-  ```bash
-  
-  ```
-
-  **can be install via apt on Debian-based Linux distributions*
-
-  ```bash
-  
-  ```
-
-  
-
-
-FIR (fast incident response)
-FTK
-Wireshark
-ELK (Security information and event management)
-Volatility
-Netcat
-Portminer?
-EnCase
-Snort
-tcpdump
-Autopsy
-WinPrefetch View
-LiME
-DD
-forensics-all
-lime-forensics-dkms
-snort
-suricata
-tcpdump
-vim
-volatility
-wireshark
-tcpdump 
-#
-wireshark
-#
-ngrep
-#Search packets http://ngrep.sourceforge.net/
-flowgrep
-#Search for expressions in packet stream http://monkey.org/~jose/software/flowgrep/
-hexdump
-#http://sourceforge.net/projects/hexdump/
-snort
-#
-suricata
-#http://www.openinfosecfoundation.org/index.php/downloads
-tcpdstat
-#http://staff.washington.edu/dittrich/talks/core02/tools/tools.html
-fir
-#https://github.com/certsocietegenerale/FIR
-vim
-#
-forensics-all
-lime-forensics-dkms
-volatility
+	  **can be install via apt on Debian-based Linux distributions*
+	
+	  ```bash
+	  
+	  ```
+--->
+!!!
