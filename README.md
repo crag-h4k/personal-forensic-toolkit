@@ -29,7 +29,10 @@ forensics_pkgs.txt
 ```
 **make sure each package has its own line*
 
-<!--ts-->
+## Contents
+
+## <!--ts-->
+
    * [Personal Forensics Toolkit](#personal-forensics-toolkit)
       * [Installation](#installation)
       * [1. Host and Storage Tools](#1-host-and-storage-tools)
