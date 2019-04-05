@@ -8,6 +8,7 @@ This document should be used as a Digital Forensics Toolkit quick reference shee
 - Description
 - Review
 - Usage
+- Installation
 
 **Unless otherwise stated, all tools are installed on Debian GNU/Linux*
 
@@ -176,7 +177,7 @@ Things start to get really spicy when you use dd over SSH. I like to do this to 
 
 
   ```bash
-  wireshark
+  sudo wireshark
   ```
   - Then choose the interface you want to sniff on.
 
@@ -185,7 +186,7 @@ Things start to get really spicy when you use dd over SSH. I like to do this to 
   To use the GUI to browser through an existing pcap file:
 
   ```bash
-  wireshark <name of pcap>
+  sudo wireshark <name of pcap>
   ```
   **can be install via apt on Debian-based Linux distributions*
 
